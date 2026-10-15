@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="460" viewBox="0 0 1280 460" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06121f"/>
+      <stop offset="0.55" stop-color="#0b2a4a"/>
+      <stop offset="1" stop-color="#0d3d6b"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7fd3ff"/>
+      <stop offset="0.5" stop-color="#2496ed"/>
+      <stop offset="1" stop-color="#1d63ed"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2496ed" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#2496ed" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
+    </pattern>
+    <clipPath id="titleClip">
+      <text x="418" y="170" font-size="62" font-weight="800">Docker: Basic → Advanced</text>
+    </clipPath>
+  </defs>
+
+  <style>
+    .glow   { transform-box: fill-box; transform-origin: center; animation: glow 4s ease-in-out infinite; }
+    .float  { animation: float 4s ease-in-out infinite; }
+    .wave   { animation: wave 6s linear infinite; }
+    .wave2  { animation: wave 9s linear infinite reverse; }
+    .shine  { animation: shine 6s ease-in-out infinite; }
+    .box    { animation: box 3s ease-in-out infinite; }
+    .chip   { animation: chip 4s ease-in-out infinite; }
+    .flow   { animation: flow 1s linear infinite; }
+    .stage  { animation: stage 7s ease-out infinite; }
+    .packet { animation: packet 7s linear infinite; }
+    .bubble { animation: bubble 3s ease-in infinite; }
+    @keyframes glow   { 50% { transform: scale(1.12); opacity: 0.7; } }
+    @keyframes float  { 50% { transform: translateY(-10px); } }
+    @keyframes wave   { to { transform: translateX(-160px); } }
+    @keyframes shine  { 0% { transform: translateX(0); } 60%, 100% { transform: translateX(950px); } }
+    @keyframes box    { 0%, 100% { fill-opacity: 1; } 50% { fill-opacity: 0.55; } }
+    @keyframes chip   { 0%, 30%, 100% { fill-opacity: 0.08; } 12% { fill-opacity: 0.3; } }
+    @keyframes flow   { to { stroke-dashoffset: -12; } }
+    @keyframes stage  { 0% { fill: #0a2340; } 4%, 18% { fill: #2496ed; } 32%, 100% { fill: #0a2340; } }
+    @keyframes packet { 0% { transform: translateX(0); opacity: 1; } 86% { transform: translateX(1000px); opacity: 1; } 92%, 100% { transform: translateX(1000px); opacity: 0; } }
+    @keyframes bubble { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 0.8; } 100% { transform: translateY(-40px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+
+  <!-- background -->
+  <rect width="1280" height="460" fill="url(#bg)"/>
+  <rect width="1280" height="460" fill="url(#grid)"/>
+  <circle class="glow" cx="215" cy="190" r="210" fill="url(#glow)"/>
+
+  <!-- Docker whale carrying containers -->
+  <g class="float">
+    <!-- containers -->
+    <g fill="#2496ed" stroke="#7fd3ff" stroke-width="2">
+      <rect class="box" x="120" y="128" width="36" height="32" rx="3" style="animation-delay:0s"/>
+      <rect class="box" x="162" y="128" width="36" height="32" rx="3" style="animation-delay:.3s"/>
+      <rect class="box" x="204" y="128" width="36" height="32" rx="3" style="animation-delay:.6s"/>
+      <rect class="box" x="162" y="90"  width="36" height="32" rx="3" style="animation-delay:.9s"/>
+      <rect class="box" x="204" y="90"  width="36" height="32" rx="3" style="animation-delay:1.2s"/>
+      <rect class="box" x="246" y="128" width="36" height="32" rx="3" style="animation-delay:1.5s"/>
+      <rect class="box" x="204" y="52"  width="36" height="32" rx="3" style="animation-delay:1.8s"/>
+    </g>
+    <!-- whale body -->
+    <path fill="#2496ed" d="M86 168h258c10-22 34-30 52-22-6 14-4 24 6 30-14 8-32 10-48 6-26 64-96 100-176 100-58 0-96-40-92-114z"/>
+    <path fill="#1d63ed" opacity="0.6" d="M100 236c40 30 120 34 190 6-40 34-120 44-190-6z"/>
+    <circle cx="140" cy="198" r="7" fill="#06121f"/>
+    <circle cx="142" cy="196" r="2.2" fill="#ffffff"/>
+    <!-- spout bubbles -->
+    <g fill="#7fd3ff">
+      <circle class="bubble" cx="96" cy="150" r="5" style="animation-delay:0s"/>
+      <circle class="bubble" cx="88" cy="142" r="3.5" style="animation-delay:1s"/>
+      <circle class="bubble" cx="102" cy="140" r="3" style="animation-delay:2s"/>
+    </g>
+  </g>
+
+  <!-- waves -->
+  <g fill="none" stroke="#7fd3ff" stroke-width="3" stroke-linecap="round">
+    <path class="wave"  stroke-opacity="0.5"  d="M20 300 q40 -14 80 0 t80 0 t80 0 t80 0 t80 0"/>
+    <path class="wave2" stroke-opacity="0.25" d="M0 314 q40 -12 80 0 t80 0 t80 0 t80 0 t80 0 t80 0"/>
+  </g>
+
+  <!-- title -->
+  <text x="420" y="100" fill="#7fd3ff" font-size="18" font-weight="600" letter-spacing="4">CONTAINERS  ·  IMAGES  ·  COMPOSE  ·  DEVOPS</text>
+  <text x="418" y="170" fill="url(#title)" font-size="62" font-weight="800">Docker: Basic → Advanced</text>
+  <g clip-path="url(#titleClip)">
+    <rect class="shine" x="300" y="105" width="110" height="80" fill="url(#shine)"/>
+  </g>
+  <text x="420" y="210" fill="#d6e8f7" font-size="22">Architecture, images, networking, volumes &amp; Compose, visually explained</text>
+
+  <!-- topic chips -->
+  <g font-size="16" font-weight="600" text-anchor="middle">
+    <g fill="#ffffff" fill-opacity="0.08" stroke="#2496ed" stroke-opacity="0.8">
+      <rect class="chip" style="animation-delay:0s"   x="420" y="236" width="130" height="36" rx="18"/>
+      <rect class="chip" style="animation-delay:.4s"  x="562" y="236" width="130" height="36" rx="18"/>
+      <rect class="chip" style="animation-delay:.8s"  x="704" y="236" width="130" height="36" rx="18"/>
+      <rect class="chip" style="animation-delay:1.2s" x="846" y="236" width="130" height="36" rx="18"/>
+      <rect class="chip" style="animation-delay:1.6s" x="988" y="236" width="130" height="36" rx="18"/>
+    </g>
+    <g fill="#ffffff">
+      <text x="485"  y="260">🐳 Engine</text>
+      <text x="627"  y="260">📦 Images</text>
+      <text x="769"  y="260">🌐 Network</text>
+      <text x="911"  y="260">💾 Volumes</text>
+      <text x="1053" y="260">🧩 Compose</text>
+    </g>
+  </g>
+
+  <!-- pipeline flow: Dockerfile → Build → Image → Push → Registry → Pull → Run -->
+  <g transform="translate(0 340)">
+    <line x1="110" y1="40" x2="1170" y2="40" stroke="#2496ed" stroke-opacity="0.6" stroke-width="3" stroke-dasharray="6 6" class="flow"/>
+    <g font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">
+      <g stroke="#2496ed" stroke-width="2">
+        <rect class="stage" style="animation-delay:0s"    x="50"   y="18" width="120" height="44" rx="10"/>
+        <rect class="stage" style="animation-delay:1s"    x="226"  y="18" width="120" height="44" rx="10"/>
+        <rect class="stage" style="animation-delay:2s"    x="402"  y="18" width="120" height="44" rx="10"/>
+        <rect class="stage" style="animation-delay:3s"    x="578"  y="18" width="120" height="44" rx="10"/>
+        <rect class="stage" style="animation-delay:4s"    x="754"  y="18" width="120" height="44" rx="10"/>
+        <rect class="stage" style="animation-delay:5s"    x="930"  y="18" width="120" height="44" rx="10"/>
+        <rect class="stage" style="animation-delay:6s"    x="1106" y="18" width="124" height="44" rx="10"/>
+      </g>
+      <text x="110"  y="45">Dockerfile</text>
+      <text x="286"  y="45">build</text>
+      <text x="462"  y="45">Image</text>
+      <text x="638"  y="45">push</text>
+      <text x="814"  y="45">Registry</text>
+      <text x="990"  y="45">pull</text>
+      <text x="1168" y="45">Container</text>
+    </g>
+    <g class="packet">
+      <circle cx="140" cy="76" r="7" fill="#7fd3ff"/>
+      <circle cx="140" cy="76" r="13" fill="#7fd3ff" fill-opacity="0.25"/>
+    </g>
+  </g>
+
+  <rect x="0" y="452" width="1280" height="8" fill="url(#title)"/>
+</svg>

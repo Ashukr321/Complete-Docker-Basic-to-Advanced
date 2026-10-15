@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="resources/banner.svg" alt="Docker: Basic to Advanced banner" width="100%">
+</p>
+
 # 🐳 Docker: Basic to Advanced
 
 > A comprehensive, structured learning guide for Docker — from containerization fundamentals to production-ready orchestration.
@@ -11,6 +15,7 @@
 - [Official Learning Path](#-official-docker-developer-learning-path)
 - [Learning Path — Step by Step](#-learning-path--step-by-step)
 - [Learning Resources](#-learning-resources)
+- [Docker Commands Reference](#-docker-commands-reference)
 - [Visual Architecture Guides](#-visual-architecture-guides)
 - [Prerequisites & Setup](#-prerequisites--setup)
 - [Getting Started](#-getting-started)
@@ -161,6 +166,21 @@ After completing this learning path, you will understand and be able to discuss:
 
 ---
 
+## 🧾 Docker Commands Reference
+
+Command cheat-sheets with explanations (Hindi + English) live in [`docker cmd/`](./docker%20cmd/):
+
+| # | Topic | Covers |
+|---|-------|--------|
+| 0 | [Getting Started](docker%20cmd/00_GETTING_STARTED.md) | Basic commands to start working with Docker |
+| 1 | [Container Management](docker%20cmd/01_CONTAINER_MANAGEMENT.md) | Run, stop, inspect, exec, logs |
+| 2 | [Image Management](docker%20cmd/02_IMAGE_MANAGEMENT.md) | Build, tag, list, remove images |
+| 3 | [Networking](docker%20cmd/03_NETWORKING.md) | Create and manage Docker networks |
+| 4 | [Cleanup](docker%20cmd/04_CLEANUP.md) | Prune unused containers, images, volumes |
+| 5 | [Registry & Hub](docker%20cmd/05_REGISTRY_AND_HUB.md) | Login, push, pull, private registries |
+
+---
+
 ## 🖼️ Visual Architecture Guides
 
 This repository includes architectural diagrams and visual guides:
@@ -170,7 +190,14 @@ This repository includes architectural diagrams and visual guides:
 | Resource | Description |
 |----------|-------------|
 | ![Docker Architecture](resources/docker_architecture_overview.svg) | **Docker Architecture Overview** — Understanding the core components and how Docker works |
+| ![Docker Daemon](resources/docker_daemon.svg) | **Docker Daemon Architecture** — How the CLI talks to `dockerd` over the REST API, and how `containerd` → `runc` start containers ([PNG version](resources/docker_daemon.png)) |
 | ![Docker Pipeline](resources/docker_pipeline_flow.svg) | **Docker Pipeline Flow** — The complete workflow from image building to container execution |
+
+### Docker on Windows
+
+| Resource | Description |
+|----------|-------------|
+| ![Docker on Windows](resources/docker_on_windows_structure.png) | **Docker on Windows (WSL 2)** — How Docker Desktop runs the Linux engine inside a WSL 2 VM on Windows |
 
 ### Container Management
 
