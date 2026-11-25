@@ -18,6 +18,7 @@ export const ASSET_EXT = new Set([...IMAGE_EXT, ".html"]);
 /** Repo images that should not appear anywhere (repo-relative, posix). */
 export const IGNORED_IMAGES: string[] = [];
 const ACRONYMS = new Set(["api", "cli", "cmd", "ci", "cd", "dns", "http", "https", "json", "yaml", "url", "wsl", "ssl", "tls", "xss", "csrf", "cors", "ssh", "tcp", "udp", "ip", "os", "vm"]);
+const SMALL_WORDS = new Set(["a", "an", "and", "or", "of", "the", "to", "in", "on", "for", "vs"]);
 
 export type Doc = {
   slug: string;
@@ -51,7 +52,13 @@ export function titleize(name: string) {
   return stripPrefix(name.replace(/\.[a-z]+$/i, ""))
     .split(/[_\-\s]+/)
     .filter(Boolean)
-    .map((w) => (ACRONYMS.has(w.toLowerCase()) ? w.toUpperCase() : w[0].toUpperCase() + w.slice(1).toLowerCase()))
+    .map((w, i) =>
+      ACRONYMS.has(w.toLowerCase())
+        ? w.toUpperCase()
+        : i > 0 && SMALL_WORDS.has(w.toLowerCase())
+          ? w.toLowerCase()
+          : w[0].toUpperCase() + w.slice(1).toLowerCase(),
+    )
     .join(" ");
 }
 
@@ -59,7 +66,7 @@ function listDir(rel: string) {
   return fs
     .readdirSync(/*turbopackIgnore: true*/ abs(rel), { withFileTypes: true })
     .filter((e) => !e.name.startsWith(".") && !SKIP_DIRS.has(e.name))
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => a.name.localeCompare(b.name, "en", { numeric: true })); // 92_ before 100_
 }
 
 const isMd = (n: string) => n.toLowerCase().endsWith(".md");

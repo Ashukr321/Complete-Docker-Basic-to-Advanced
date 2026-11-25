@@ -27,6 +27,11 @@ describe("content loader (real notes)", () => {
     expect(getDoc("does/not/exist")).toBeUndefined();
   });
 
+  it("orders numbered lessons numerically (92 before 100)", () => {
+    const compose = docs.filter((d) => d.dir === "05_docker-compose").map((d) => d.source);
+    if (compose.length) expect(compose.at(-1)).toMatch(/100_/);
+  });
+
   it("never titles a doc 'Concept'", () => {
     expect(docs.filter((d) => d.title === "Concept")).toEqual([]);
   });
