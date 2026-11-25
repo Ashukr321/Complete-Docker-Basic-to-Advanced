@@ -1,0 +1,13 @@
+# Applies to the repo-root build context used by website/Dockerfile.
+**/node_modules
+**/.next
+**/.git
+**/.env*
+!website/.env.example
+**/*.pdf
+**/*.log
+**/npm-debug.log*
+**/.vercel
+**/coverage
+.claude
+website/.claude
